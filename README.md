@@ -193,10 +193,6 @@ Mostra solo i libri non letti quando si clicca il pulsante per mostrare i libri 
     -   Configurazione di `db.json` per memorizzare i dati dei libri.
     -   Utilizzo di due terminali: uno per `npm run dev` (Vite) e uno per `npm run json-server` (JSON Server).
 
-### Conclusione
-
-Il JavaScript per questo progetto gestisce tutte le interazioni dell'utente con il sistema, dal caricamento iniziale dei libri, all'aggiunta di nuovi, alla modifica e eliminazione, fino al filtraggio e ordinamento. L'integrazione con JSON Server permette di simulare un backend reale, offrendo un'esperienza di sviluppo completa e realistica.
-
 
 ## Ruoli
 
@@ -208,6 +204,7 @@ Il JavaScript per questo progetto gestisce tutte le interazioni dell'utente con 
 
 Questi ruoli sono quelli all'interno del gruppo di lavoro per il progetto MyLibrary... In realtà siamo tutti Front End Developer in erba e abbiamo cercato di dare il meglio in tutte le fasi del progetto mantenendo comunque 
 
-## Commenti finali
+### Conclusione
 
-Questo progetto dimostra come utilizzare tecnologie moderne e leggere per creare un'applicazione web funzionale e user-friendly. L'integrazione di JSON Server consente di simulare un backend reale, mentre l'uso di Tailwind CSS garantisce un design reattivo e pulito. Il risultato è un'applicazione completa che permette una gestione efficace di un archivio di libri, con funzionalità avanzate di filtro e ordinamento per migliorare l'esperienza dell'utente.
+Il JavaScript per questo progetto gestisce tutte le interazioni dell'utente con il sistema, dal caricamento iniziale dei libri, all'aggiunta di nuovi, alla modifica e eliminazione, fino al filtraggio e ordinamento. L'integrazione con JSON Server permette di simulare un backend reale, offrendo un'esperienza di sviluppo completa e realistica.
+
