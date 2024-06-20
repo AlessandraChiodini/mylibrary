@@ -54,7 +54,7 @@ Questo progetto consiste nella creazione di un'applicazione web per la gestione 
     
 3.  **Link a Tailwind CSS**: Collega il file CSS di Tailwind per applicare stili predefiniti alla pagina.
     
-4.  **Tag `<body>`**: Il corpo principale dell'HTML, con una classe `bg-gray-100` per impostare lo sfondo grigio chiaro e `font-sans` per utilizzare un tipo di carattere senza grazie.
+4.  **Tag `<body>`**: Il corpo principale dell'HTML, con una classe `bg-gray-100` per impostare lo sfondo grigio chiaro e `font-sans` per definire il tipo di carattere.
     
 5.  **Div principale `.container`**: Contenitore principale della pagina, con margine esterno automatico (`mx-auto`) e spaziatura interna (`p-4`).
     
