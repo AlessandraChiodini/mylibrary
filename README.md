@@ -82,7 +82,7 @@ Questo codice HTML crea un'interfaccia web per gestire una libreria di libri, ut
     
 3.  **`caricaLibri()`**: Questa funzione effettua una richiesta HTTP GET tramite `fetch` per ottenere i dati dei libri dal server all'indirizzo `http://localhost:3001/libri`. Una volta ricevuti i dati, svuota il contenuto dell'elemento `cont_lista` e chiama la funzione `stampaLibri` per ogni libro ottenuto.
     
-4.  **`stampaLibri(libro)`**: Questa funzione crea dinamicamente un elemento `<li>` per ogni libro ricevuto. All'interno di ciascun `<li>`, crea elementi `<h2>`, `<h3>`, un checkbox e un bottone "Rimuovi" per visualizzare e gestire le informazioni del libro. Ogni elemento viene popolato con i dati appropriati dal libro e aggiunto alla lista `cont_lista`.
+4.  **`stampaLibri(libro)`**: Questa funzione crea dinamicamente un elemento `<div>` per ogni libro ricevuto. All'interno di ciascun `<div>`, crea elementi `<h2>`, `<h3>`, un checkbox e un bottone "Rimuovi" per visualizzare e gestire le informazioni del libro. Ogni elemento viene popolato con i dati appropriati dal libro e aggiunto alla lista `cont_lista`.
     
 5.  **Gestione del checkbox**: Viene creato un checkbox per segnare se un libro è stato letto o no. Aggiunge un event listener per il click su questo checkbox, che invia una richiesta PATCH al server per aggiornare lo stato di lettura del libro (`libro.letto`). Quando il checkbox viene cliccato, inverte lo stato di lettura e aggiorna visivamente il checkbox di conseguenza.
     
