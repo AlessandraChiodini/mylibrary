@@ -86,7 +86,7 @@ Questo codice HTML crea un'interfaccia web per gestire una libreria di libri, ut
     
 5.  **Gestione del checkbox**: Viene creato un checkbox per segnare se un libro è stato letto o no. Aggiunge un event listener per il click su questo checkbox, che invia una richiesta PATCH al server per aggiornare lo stato di lettura del libro (`libro.letto`). Quando il checkbox viene cliccato, inverte lo stato di lettura e aggiorna visivamente il checkbox di conseguenza.
     
-6.  **Gestione del bottone "Rimuovi"**: Crea un bottone "Rimuovi" per ciascun libro nella lista. Aggiunge un event listener per il click su questo bottone, che invia una richiesta DELETE al server per rimuovere il libro dalla lista. Una volta confermata la rimozione dal server, l'elemento `<li>` corrispondente viene rimosso dalla lista visuale.
+6.  **Gestione del bottone "Rimuovi"**: Crea un bottone "Rimuovi" per ciascun libro nella lista. Aggiunge un event listener per il click su questo bottone, che invia una richiesta DELETE al server per rimuovere il libro dalla lista. Una volta confermata la rimozione dal server, l'elemento `<div>` corrispondente viene rimosso dalla lista visuale.
     
 7.  **Gestione dell'evento "click" su "Mostra Tutti i Libri"**: Aggiunge un event listener al bottone "Mostra Tutti i Libri" (`tutti_libri`). Quando il bottone viene cliccato, chiama la funzione `caricaLibri` per caricare e visualizzare tutti i libri presenti sul server.    
 
