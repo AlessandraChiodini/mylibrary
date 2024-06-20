@@ -1,3 +1,4 @@
+
 # MyLibrary
 
 Questo progetto consiste nella creazione di un'applicazione web per la gestione di un archivio di libri, utilizzando un backend simulato con JSON Server e un frontend in Vanilla JavaScript. L'applicazione permette agli utenti di eseguire operazioni CRUD (Create, Read, Update, Delete) sui libri. Inoltre, sono state implementate funzionalità di filtro e ordinamento per migliorare l'esperienza utente.
@@ -88,7 +89,103 @@ Questo codice HTML crea un'interfaccia web per gestire una libreria di libri, ut
     
 6.  **Gestione del bottone "Rimuovi"**: Crea un bottone "Rimuovi" per ciascun libro nella lista. Aggiunge un event listener per il click su questo bottone, che invia una richiesta DELETE al server per rimuovere il libro dalla lista. Una volta confermata la rimozione dal server, l'elemento `<div>` corrispondente viene rimosso dalla lista visuale.
     
-7.  **Gestione dell'evento "click" su "Mostra Tutti i Libri"**: Aggiunge un event listener al bottone "Mostra Tutti i Libri" (`tutti_libri`). Quando il bottone viene cliccato, chiama la funzione `caricaLibri` per caricare e visualizzare tutti i libri presenti sul server.    
+7.  **Gestione dell'evento "click" su "Mostra Tutti i Libri"**: Aggiunge un event listener al bottone "Mostra Tutti i Libri" (`tutti_libri`). Quando il bottone viene cliccato, chiama la funzione `caricaLibri` per caricare e visualizzare tutti i libri presenti sul server.
+   
+8.  **Gestire l'invio di un modulo per aggiungere un nuovo libro alla libreria**: quando il modulo viene inviato, l'evento submit viene intercettato e il comportamento predefinito viene prevenuto (`e.preventDefault()).
+- Creare un oggetto nuovoLibro: raccoglie i dati dal modulo (titolo, autore, anno) e crea un oggetto nuovoLibro con questi valori, impostando letto a false.
+- Inviare i dati al server: utilizza fetch per inviare una richiesta POST al server con l'oggetto nuovoLibro convertito in JSON.
+- Gestire la risposta del server: Se la richiesta ha successo, la risposta viene convertita in JSON e la funzione stampaLibri viene chiamata per visualizzare il nuovo libro. I campi del modulo vengono resettati.
+- Gestire gli errori: se c'è un errore durante la richiesta, viene stampato nella console.
+In breve, questo codice aggiunge un nuovo libro alla libreria e aggiorna l'interfaccia utente con i dati del nuovo libro, gestendo eventuali errori nel processo.
+
+9. **Le due funzioni libriLetti e libriNonLetti filtrano e mostrano rispettivamente i libri letti e non letti da un database**: fetch("http://localhost:3001/libri"): Esegue una richiesta GET al server per ottenere tutti i libri.
+`.then((response) => response.json()):` Converte la risposta del server in formato JSON.
+.`then((libri) => {...}):` Esegue il blocco di codice con i dati dei libri.
+`cont_lista.innerHTML = "":` Svuota l'elemento HTML che contiene la lista dei libri.
+`const libriLettiFiltrati = libri.filter((libro) => libro.letto):` Filtra i libri per ottenere solo quelli letti.
+`libriLettiFiltrati.forEach(stampaLibri):` Visualizza i libri letti filtrati chiamando la funzione stampaLibri.
+`console.log(libriLettiFiltrati.length):` Mostra il numero di libri letti nella console.
+`.catch((errore) => {...}):` Gestisce eventuali errori nella richiesta e li mostra nella console. Funzione `libriNonLetti:fetch("http://localhost:3001/libri"):` Esegue una richiesta GET al server per ottenere tutti i libri.
+`.then((response) => response.json()):` Converte la risposta del server in formato JSON.
+`.then((libri) => {...}):` Esegue il blocco di codice con i dati dei libri.
+`cont_lista.innerHTML = "":` Svuota l'elemento HTML che contiene la lista dei libri.
+`const libriNonLettiFiltrati = libri.filter((libro) => !libro.letto):` Filtra i libri per ottenere solo quelli non letti.
+`libriNonLettiFiltrati.forEach(stampaLibri):` Visualizza i libri non letti filtrati chiamando la funzione stampaLibri.
+`console.log(libriNonLettiFiltrati.length):` Mostra il numero di libri non letti nella console.
+`.catch((errore) => {...}):` Gestisce eventuali errori nella richiesta e li mostra nella console.
+
+11. **Le funzioni, contaNonLetti e contaLetti, che contano rispettivamente i libri non letti e i libri letti e aggiornano i relativi contatori sulla pagina web**: `fetch("http://localhost:3001/libri"):` Esegue una richiesta GET al server per ottenere tutti i libri.
+`.then((response) => response.json()):` Converte la risposta del server in formato JSON.
+`.then((libri) => {...}):` Esegue il blocco di codice con i dati dei libri.
+`const libriNonLettiCont = libri.filter((libro) => !libro.letto):` Filtra i libri per ottenere solo quelli non letti.
+`contatori_non_letti.innerText = libriNonLettiCont.length:` Aggiorna il contatore dei libri non letti sulla pagina con il numero di libri non letti.
+`.catch((errore) => {...}):` Gestisce eventuali errori nella richiesta e li mostra nella console.
+Funzione contaLetti:
+`fetch("http://localhost:3001/libri"):` Esegue una richiesta GET al server per ottenere tutti i libri.
+`.then((response) => response.json()):` Converte la risposta del server in formato JSON.
+`.then((libri) => {...}):` Esegue il blocco di codice con i dati dei libri.
+`const libriLettiCont = libri.filter((libro) => libro.letto):` Filtra i libri per ottenere solo quelli letti.
+`contatori_letti.innerText = libriLettiCont.length:` Aggiorna il contatore dei libri letti sulla pagina con il numero di libri letti.
+`.catch((errore) => {...}):` Gestisce eventuali errori nella richiesta e li mostra nella console.
+
+11. **La funzione ordinaTitolo ordina i libri in base al titolo in ordine alfabetico e li visualizza sulla pagina**
+
+Pulizia del contenitore:
+
+`cont_lista.innerHTML = "":` Svuota il contenitore HTML dove vengono visualizzati i libri.
+
+    fetch("http://localhost:3001/libri"):
+
+Esegue una richiesta GET al server per ottenere tutti i libri.
+
+    .then((response) => response.json()):
+
+Converte la risposta del server in formato JSON.
+
+    .then((libri) => {...}):
+
+Esegue il blocco di codice con i dati dei libri.
+
+    const ordinaTi = libri.sort((a, b) => {...}):
+
+Ordina i libri in base al titolo in ordine alfabetico.
+`a.titolo.toLowerCase() < b.titolo.toLowerCase():` Confronta i titoli dei libri in ordine alfabetico ignorando maiuscole e minuscole.
+Restituisce -1 se a.titolo è minore di b.titolo, 1 se è maggiore e 0 se sono uguali.
+
+    ordinaTi.forEach(stampaLibri):
+
+Visualizza ciascun libro ordinato sulla pagina chiamando la funzione stampaLibri per ogni libro.
+
+    .catch((errore) => {...}):
+
+Gestisce eventuali errori nella richiesta e li mostra nella console.
+
+12. **Le funzioni che al caricamento della pagina aggiungono degli event listener per vari pulsanti della pagina per eseguire diverse azioni**
+Funzioni chiamate al lancio della pagina:
+
+contaNonLetti(): Conta i libri non letti e aggiorna il contatore sulla pagina.
+contaLetti(): Conta i libri letti e aggiorna il contatore sulla pagina.
+Event listener per i pulsanti:
+
+    ordina_titolo.addEventListener("click", ordinaTitolo):
+
+Ordina i libri per titolo quando si clicca il pulsante per l'ordinamento per titolo.
+
+    ordina_data.addEventListener("click", ordinaAnno):
+
+Ordina i libri per anno quando si clicca il pulsante per l'ordinamento per anno.
+
+    tutti_libri.addEventListener("click", caricaLibri):
+
+Mostra tutti i libri quando si clicca il pulsante per mostrare tutti i libri.
+
+    libri_letti.addEventListener("click", libriLetti):
+
+Mostra solo i libri letti quando si clicca il pulsante per mostrare i libri letti.
+
+    libri_da_leggere.addEventListener("click", libriNonLetti):
+
+Mostra solo i libri non letti quando si clicca il pulsante per mostrare i libri da leggere.
 
 **JSON Server:**
 
@@ -109,6 +206,7 @@ Il JavaScript per questo progetto gestisce tutte le interazioni dell'utente con 
 - Monia Cirimele - Junior Web Developer (GitHub)
 - Matteo Sabatini - IT Support Specialist (GitHub)
 
+Questi ruoli sono quelli all'interno del gruppo di lavoro per il progetto MyLibrary... In realtà siamo tutti Front End Developer in erba e abbiamo cercato di dare il meglio in tutte le fasi del progetto mantenendo comunque 
 
 ## Commenti finali
 
